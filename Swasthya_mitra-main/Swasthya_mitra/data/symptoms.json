@@ -1,0 +1,104 @@
+{
+  "en": [
+    {
+      "keywords": ["fever", "temperature", "high fever"],
+      "issue": "Fever / Infection",
+      "guidance": "Drink fluids, rest, and take paracetamol. If fever continues beyond 48 hours or is very high, visit a doctor.",
+      "department": "General Medicine"
+    },
+    {
+      "keywords": ["cough", "breathlessness", "difficulty breathing", "shortness of breath", "cold"],
+      "issue": "Respiratory Issue",
+      "guidance": "Avoid cold drinks, do steam inhalation and monitor breathing. If you have severe breathlessness or chest pain, seek emergency care immediately.",
+      "department": "Respiratory"
+    },
+    {
+      "keywords": ["stomach pain", "abdominal pain", "vomit", "vomiting", "diarrhea", "loose motions"],
+      "issue": "Gastrointestinal Issue",
+      "guidance": "Take ORS or clean water, avoid spicy food. If vomiting or diarrhea is continuous or there is blood, see a gastroenterologist.",
+      "department": "Gastroenterology"
+    },
+    {
+      "keywords": ["chest pain", "heart pain", "pressure chest", "angina"],
+      "issue": "Possible Cardiac Issue",
+      "guidance": "Chest pain can be serious. If pain spreads to arm/neck, or you sweat heavily, call for emergency help or go to hospital immediately.",
+      "department": "Cardiology"
+    },
+    {
+      "keywords": ["headache", "migraine", "head pain", "very bad headache"],
+      "issue": "Headache / Migraine",
+      "guidance": "Drink water, rest in a quiet place, take OTC pain relief if safe. If severe or sudden, consult a doctor.",
+      "department": "Neurology"
+    },
+    {
+      "keywords": ["skin rash", "red spots", "itching skin", "skin infection"],
+      "issue": "Skin Rash/Infection", 
+      "guidance": "Clean area, apply antiseptic cream. Monitor for spreading.",
+      "department": "Dermatology"
+    }
+  ],
+  "hi": [
+    {
+      "keywords": ["बुखार","तापमान","उच्च बुखार"],
+      "issue": "बुखार / संक्रमण",
+      "guidance": "जल पीएं, आराम करें और पैरासिटामोल लें। यदि बुखार 48 घंटे से अधिक रहता है या बहुत तेज है तो डॉक्टर से मिलें।",
+      "department": "General Medicine"
+    },
+    {
+      "keywords": ["खांसी","सांस लेने में तकलीफ","साँस फूलना","जुकाम"],
+      "issue": "श्वसन संबंधी समस्या",
+      "guidance": "ठंडे पेय से बचें, भाप लें और सांस की निगरानी करें। यदि साँस लेने में गंभीर समस्या हो या सीने में दर्द हो तो तुरंत अस्पताल जाएँ।",
+      "department": "Respiratory"
+    },
+    {
+      "keywords": ["पेट दर्द","उल्टी","दस्त","दस्त लगना"],
+      "issue": "पाचन तंत्र की समस्या",
+      "guidance": "ORS या साफ पानी पियें, तीखा खाना न खाएँ। यदि उल्टी/दस्त लगातार रहे या खून आए तो डॉक्टर से दिखाएँ।",
+      "department": "Gastroenterology"
+    },
+    {
+      "keywords": ["सीने में दर्द","दिल का दर्द","छाती में दबाव"],
+      "issue": "हृदय संबंधी समस्या",
+      "guidance": "सीने में दर्द गंभीर हो सकता है। यदि दर्द बाँह/गर्दन में फैलता हो या अधिक पसीना आये तो तुरंत आपातकालीन सहायता लें।",
+      "department": "Cardiology"
+    },
+    {
+      "keywords": ["सिरदर्द","माइग्रेन","तेज़ सिरदर्द"],
+      "issue": "सिरदर्द / माइग्रेन",
+      "guidance": "पानी पियें, शांत जगह पर आराम करें। यदि तेज या बार-बार हो तो डॉक्टर से संपर्क करें।",
+      "department": "Neurology"
+    }
+  ],
+  "kn": [
+    {
+      "keywords": ["ಜ್ವರ","ತಾಪಮಾನ","ಹೈ ಫೈವರ್"],
+      "issue": "ಜ್ವರ / ಸೋಂಕು",
+      "guidance": "ತಣ್ಣീര് ಕುಡಿ, ವಿಶ್ರಾಂತಿ ಮಾಡಿ ಮತ್ತು ಪ್ಯಾರಾಸಿಟಾಮಾಲ್ ಸೇವಿಸಿ. ಜ್ವರ 48 ಗಂಟೆಗಳಿಗಿಂತ ಹೆಚ್ಚು ಇದ್ದರೆ ಡಾಕ್ಟರ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      "department": "General Medicine"
+    },
+    {
+      "keywords": ["ಓಣಕು","ಉಸಿರಾಟದ ತೊಂದರೆ","ಉಸಿರಾಟ ಕಷ್ಟ","ಹಂಗು"],
+      "issue": "ಶ್ವಾಸಕೋಶ ಸಂಬಂಧಿ ಸಮಸ್ಯೆ",
+      "guidance": "ತಣವಾದ ಪಾನೀಯದಿಂದ ದೂರಿರಿ, ಭಾವುಕ ಉಸಿರಾಟ ಮಾಡಿ ಮತ್ತು ಸ್ಥಿತಿಯನ್ನು ಗಮನಿಸಿ. ಉಸಿರಾಟ ತೀವ್ರವಾದರೆ ತಕ್ಷಣ ವೈದ್ಯರ ಸಹಾಯ ಪಡೆಯಿರಿ.",
+      "department": "Respiratory"
+    },
+    {
+      "keywords": ["ಉಸಿರಾಟದ ತೊಂದರೆ","ಚೆಸ್ಟ್ ಪೇನ್","ನಿರ್ಣಾಯಕ ರೋಗ"],
+      "issue": "ಪಾಚಕ ಸಮಸ್ಯೆ (ಉದಾಹರಣೆ)",
+      "guidance": "ORS ಕುಡಿಯಿರಿ, ಖಾರದ ಖಾದ್ಯ ತಪ್ಪಿಸಿ. ನಿರಂತರ ಉಲ್ಟಿ/ಡೈರಿಯಾ ಇದ್ದರೆ ತಕ್ಷಣ ವೈದ್ಯರನ್ನು ನೋಡಿ.",
+      "department": "Gastroenterology"
+    },
+    {
+      "keywords": ["ಗಡ್ಡೆ ನೋವು","ಮೂಳೆ ನೋವು","ಕಿವಿ ನೋವು"],
+      "issue": "ಹೃದಯ ಸಂಬಂಧಿ/ಇಮರ್ಜೆನ್ಸಿ ಸೂಚನೆ",
+      "guidance": "ಸುತ್ತು ನೋವು/ಕೈಗೆ ಹರಡುವ ನೋವು ಇದ್ದರೆ ತಕ್ಷಣ ವೈದ್ಯರ ಸೇವೆ ಪಡೆಯಿರಿ.",
+      "department": "Cardiology"
+    },
+    {
+      "keywords": ["ತಲೆನೋವು","ಮೈಗ್ರೇನ್"],
+      "issue": "ತಲೆನೋವು / ಮೈಗ್ರೇನ್",
+      "guidance": "ನೀರನ್ನು ಕುಡಿಯಿರಿ ಮತ್ತು ವಿಶ್ರಾಂತಿ ಪಡೆಯಿರಿ. ತೀವ್ರವಾದರೆ ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+      "department": "Neurology"
+    }
+  ]
+}

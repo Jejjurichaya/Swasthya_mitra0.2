@@ -1,0 +1,24 @@
+{
+  "modelTopology": {
+    "keras_version": "2.4.0",
+    "backend": "tensorflow",
+    "model_config": {
+      "class_name": "Sequential",
+      "config": {
+        "name": "swasthya_mitra_model",
+        "layers": [
+          {
+            "class_name": "InputLayer",
+            "config": {"batch_input_shape": [null, 224, 224, 3], "dtype": "float32", "sparse": false, "ragged": false, "name": "input_1"}
+          }
+        ]
+      }
+    }
+  },
+  "format": "layers-model",
+  "generatedBy": "TensorFlow.js tfjs-layers v4.9.0",
+  "convertedBy": null,
+  "weightsManifest": [
+    {"paths": ["model.weights.bin"], "weights": [{"name": "conv1_conv/Conv2D/kernel", "shape": [7,7,3,64], "dtype": "float32"}]}
+  ]
+}

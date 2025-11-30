@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🩺 Swasthya Mitra - Premium Offline Health Assistant</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#667eea">
+</head>
+<body data-theme="light">
+  anvas id="particles" class="particless"></canvas>
+  
+  <header>
+    <button id="themeToggle" class="theme-toggle" title="Toggle Theme">🌙</button>
+    <h1>🩺 Swasthya Mitra</h1>
+    <p>Premium Offline Healthcare • English / हिंदी / ಕನ್ನಡ</p>
+  </header>
+
+  <main class="container">
+    <div id="loadingScreen" class="card" style="display:none; text-align:center;">
+      <div class="loading"></div>
+      <p style="margin-top:16px;">Loading Database...</p>
+    </div>
+
+    <section id="controls" class="card">
+      <label for="language" class="label-title">🌐 Language:</label>
+      <select id="language" aria-label="Choose language">
+        <option value="en">🇮🇳 English</option>
+        <option value="hi">🇮🇳 हिंदी</option>
+        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+      </select>
+
+      <div class="row">
+        <div class="mic-wrapper">
+          <button id="micBtn" class="mic-btn" aria-pressed="false" title="Start/Stop Voice">
+            <span id="micIcon">🎤</span>
+          </button>
+          <div id="micStatus" class="mic-status">Ready to listen</div>
+        </div>
+
+        <div class="text-controls">
+          <input id="textInput" type="text" placeholder="👉 Type symptoms or use voice..." />
+          <button id="textSubmit" class="btn">🚀 Analyze</button>
+        </div>
+      </div>
+
+      <label class="file-btn">📸 Upload Photo for AI Analysis
+        <input id="imageInput" type="file" accept="image/*" />
+      </label>
+    </section>
+
+    <section id="preview" class="card" style="display:none;">
+      <h3>🔍 AI Image Analysis</h3>
+      <div style="position:relative;">
+        <img id="imgPreview" alt="Medical image analysis" />
+        <div id="imageAnalysis" style="display:none;"></div>
+      </div>
+      <p class="muted small">Add details (pain, duration) → Analyze → Get guidance</p>
+    </section>
+
+    <section id="output" class="card">
+      <div id="transcript" class="transcript" style="display:none;"></div>
+      <div id="diagnosis" style="display:none;" class="diagnosis"></div>
+      
+      <div id="ttsControls" style="display:none;" class="tts-controls">
+        <button id="ttsToggleBtn" class="tts-btn">⏸️ Pause</button>
+        <button id="ttsStopBtn" class="tts-btn stop">⏹️ Stop</button>
+      </div>
+
+      <div id="hospital-section" style="display:none;" class="hospitals">
+        <h3>🏥 Nearest Hospitals</h3>
+        <ul id="hospital-list"></ul>
+      </div>
+      <!-- 💊 MEDICINE TRACKER - NEW SECTION -->
+<section id="medicine-tracker" style="display: none;">
+  <h3>💊 Medicine Reminder & Health Tracker</h3>
+  
+  <!-- Add Medicine -->
+  <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin: 15px 0;">
+    <input type="text" id="medName" placeholder="Medicine name (e.g. Paracetamol)" style="width: 60%; padding: 12px; border-radius: 10px; border: none; margin-right: 10px;">
+    <input type="time" id="medTime" style="padding: 12px; border-radius: 10px; border: none;">
+    <button id="addMedicine" style="padding: 12px 20px; background: #10b981; color: white; border: none; border-radius: 10px;">➕ Add</button>
+  </div>
+  
+  <!-- Today's Medicines -->
+  <div id="todayMeds" style="margin: 20px 0;"></div>
+  
+  <!-- Health Tracker -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0;">
+    <div class="glass-card" onclick="showTracker('bp')">
+      <div style="font-size: 1.8em;">🩸 BP</div>
+      <div id="bpValue">-</div>
+    </div>
+    <div class="glass-card" onclick="showTracker('sugar')">
+      <div style="font-size: 1.8em;">🍬 Sugar</div>
+      <div id="sugarValue">-</div>
+    </div>
+    <div class="glass-card" onclick="showTracker('weight')">
+      <div style="font-size: 1.8em;">⚖️ Weight</div>
+      <div id="weightValue">-</div>
+    </div>
+  </div>
+</section>
+
+<!-- 📊 TRACKER MODAL -->
+<div id="trackerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+  <div style="background: white; color: black; padding: 30px; border-radius: 20px; max-width: 400px; width: 90%;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+      <h3 id="modalTitle">Add Reading</h3>
+      <button onclick="closeTracker()" style="background: none; border: none; font-size: 1.5em; cursor: pointer;">×</button>
+    </div>
+    <input type="number" id="trackerValue" placeholder="Enter value" step="0.1" style="width: 100%; padding: 15px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 1.2em; margin-bottom: 15px;">
+    <button id="saveReading" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 12px; font-size: 1.1em; font-weight: 600;">💾 Save</button>
+  </div>
+</div>
+
+<!-- 🔔 FAB BUTTON STACK - BOTTOM RIGHT -->
+<div style="position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;">
+  
+  <!-- Medicine Tracker (BOTTOM) -->
+  <button id="trackerBtn" 
+          style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; border: none; font-size: 1.5em; box-shadow: 0 10px 30px rgba(139,92,246,0.4); cursor: pointer;"
+          title="💊 Medicine Tracker">
+    💊
+  </button>
+  
+  <!-- Backup Export (MIDDLE) -->
+  <button onclick="exportData()" 
+          style="width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; font-size: 1.4em; box-shadow: 0 8px 25px rgba(245,158,11,0.4); cursor: pointer;"
+          title="💾 Export Data Backup">
+    💾
+  </button>
+  
+  <!-- Backup Import (TOP) -->
+  <input type="file" id="importInput" accept=".json" style="display: none;" onchange="importData(event)">
+  <button onclick="document.getElementById('importInput').click()" 
+          style="width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; font-size: 1.4em; box-shadow: 0 8px 25px rgba(16,185,129,0.4); cursor: pointer;"
+          title="📥 Restore Backup">
+    📥
+  </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="status" class="muted small" style="text-align:center; padding-top:20px;"></div>
+    </section>
+  </main>
+
+  <footer class="muted small" style="text-align:center; padding:20px; opacity:0.7;">
+    ✨ 100% Offline • AI-Powered • Rural Healthcare
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+</html>
