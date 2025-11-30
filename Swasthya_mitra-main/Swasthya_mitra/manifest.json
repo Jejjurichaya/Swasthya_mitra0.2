@@ -2,6 +2,8 @@
   "name": "Swasthya Mitra",
   "short_name": "SwasthyaMitra",
   "start_url": "index.html",
+  "scope": "./",
+
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#667eea",

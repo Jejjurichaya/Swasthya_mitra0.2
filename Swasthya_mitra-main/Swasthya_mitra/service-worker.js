@@ -1,30 +1,44 @@
-const CACHE_NAME = 'swasthya-mitra-v2';
-const ASSETS = [
-  'index.html','style.css','app.js','manifest.json',
-  'data/symptoms.json','icons/icon-192.png','icons/icon-512.png'
+const CACHE_NAME = "swasthya-v1";
+const FILES_TO_CACHE = [
+  "./",
+  "./index.html",
+  "./app.js",
+  "./style.css",
+  "./manifest.json",
+  "./data/symptoms.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
-self.addEventListener('install', ev => {
-  ev.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(ASSETS)));
-});
-
-self.addEventListener('activate', ev => {
-  ev.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.map(k => (k !== CACHE_NAME) ? caches.delete(k) : null)
-    ))
-  );
-});
-
-self.addEventListener('fetch', ev => {
-  ev.respondWith(
-    caches.match(ev.request).then(cached => {
-      if (cached) return cached;
-      return fetch(ev.request).catch(() => {
-        if (ev.request.url.endsWith('data/symptoms.json')) {
-          return caches.match('data/symptoms.json');
-        }
-      });
+// Install event
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
+  self.skipWaiting();
+});
+
+// Serve from cache when offline
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      return cachedResponse || fetch(event.request);
+    })
+  );
+});
+
+// Clear old caches
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
 });
